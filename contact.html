@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clarity Check | Contact</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --deep-blue: #0b3c5d;
+      --aqua: #39cccc;
+    }
+
+    body {
+      font-family: 'Staatliches';
+      background-color: var(--deep-blue);
+      color: white;
+      margin: 0;
+      padding: 0;
+      line-height: 1.2;
+    }
+
+    .navbar {
+      background-color: #032032;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      border-bottom: 2px solid var(--aqua);
+    }
+    .navbar-brand img {
+      height: 50px;
+      width: auto;
+    }
+    .navbar-brand, .nav-link {
+      color: white !important;
+      font-weight: 600;
+    }
+    .nav-link:hover {
+      color: var(--aqua) !important;
+    }
+    .navbar-nav {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tagline {
+      font-family: 'Staatliches';
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--aqua); 
+      font-size: 1.3rem;
+      padding: 0px;
+      white-space: normal;
+      word-break: break-word;
+      text-align: left;
+    }
+
+    .nav-link {
+      font-size: 1.4rem;
+      padding: 0.7rem 1rem;
+      text-align: center;
+    }
+
+    /* ========== ✅ Responsive Font Adjustments ========== */
+    @media (max-width: 768px) {
+      .tagline {
+        font-size: 0.7rem;
+        text-align: left;
+        padding: 0 10px;
+      }
+      .nav-link {
+        font-size: 0.7rem;
+        padding: 0.6rem 0.8rem;
+      }
+      .navbar-brand div {
+        font-size: 1.1rem;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-link {
+        font-size: 0.7rem;
+      }
+      .navbar-brand div {
+        font-size: 1.3rem;
+      }
+      .tagline {
+        font-size: 0.45rem;
+      }
+    }
+
+     .contact-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .contact-card {
+      display: flex;
+      max-width: 1100px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .contact-left {
+      background-color: #32698b;
+      color: white;
+      padding: 2rem;  
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-left h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-left p {
+      font-size: 0.95rem;
+      margin: 0.5rem 0;
+    }
+
+    .contact-left i {
+      margin-right: 0.5rem;
+    }
+
+    .socials {
+      margin-top: 2rem;
+    }
+
+    .socials a {
+      color: white;
+      font-size: 1.2rem;
+      margin-right: 1rem;
+      text-decoration: none;
+    }
+
+    .contact-right {
+      padding: 2rem 3rem;
+      width: 70%;
+    }
+
+    .contact-right h2 {
+      color: #0b3c5d;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+      color: #333;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border: none;
+      border-bottom: 1px solid #ccc;
+      padding: 0.5rem;
+      font-size: 0.95rem;
+      background: transparent;
+      outline: none;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-group.full {
+      grid-column: span 2;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #aaa;
+    }
+
+    .form-group input[type="file"] {
+      border: none;
+      padding-left: 0;
+    }
+
+    .form-group.checkbox {
+      display: inline-block;
+      align-items: left;
+      gap: 1.5rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+      grid-column: span 2;
+    }
+
+    .send-btn {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #0b3c5d;
+      color: white;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .send-btn:hover {
+      font-size: 1.1rem;
+      background-color: #32698b;
+    }
+
+    @media (max-width: 768px) {
+      .contact-card {
+        flex-direction: column;
+      }
+      .contact-left,
+      .contact-right {
+        width: 100%;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+   .footer {
+      background-color: #092d45;
+      border-top: 2px solid var(--aqua);
+      color: white;
+      text-align: left;
+      padding: 15px;
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg" style="padding: 0px;">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="images/logo11.png" alt="Clarity Check Logo" class="me-2" />
+        <div class="ms-3" style="line-height: 1.2;">
+          <div style="font-size: 2.5rem;letter-spacing: 0.1em; font-weight: 700; padding: 0px;color: white;font-family: 'Staatliches';">CLARITY CHECK</div>
+          <b><div class="tagline">BRINGING CONFIDENCE TO YOUR NUMBERS.</div></b>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="tariff.html">Tariff</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Form Layout -->
+    <div class="contact-container">
+    <div class="contact-card">
+      <!-- Left Info Panel -->
+      <div class="contact-left">
+        <div>
+          <h3>Contact Info</h3>
+          <p><i class="bi bi-envelope-fill"></i>queries@clarity-check.co.uk</p>
+          <p><i class="bi bi-telephone-fill"></i>+44 1234 567890</p>
+        </div>
+       <!-- <div class="socials">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-twitter"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+        </div>-->
+      </div>
+
+      <!-- Right Form Panel -->
+      <!-- ... your unchanged head and navbar ... -->
+
+<!-- Right Form Panel -->
+    <div class="contact-right">
+      <h2>Get In Touch</h2>
+      <form id="contactForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="company">Company Name</label>
+            <input type="text" id="company" placeholder="Company Name" required />
+          </div>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <label for="yearEnd">Year/Period End Date</label>
+            <input type="date" id="yearEnd" required />
+          </div>
+          <div class="form-group">
+            <label for="activity">Principal Activity of Business</label>
+            <input type="text" id="activity" placeholder="e.g. Retail, Consulting..." required />
+          </div>
+          <div class="form-group">
+            <label for="reference">Reference (Optional)</label>
+            <input type="text" id="reference" placeholder="Reference or promo code" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group full">
+            <label for="service">Select Service</label>
+            <select id="service" required>
+              <option value="">-- Choose a Service --</option>
+              <option>Clarity Check of Annual Accounts</option>
+              <option>Monthly Bookkeeping Overview</option>
+              <option>Quarterly Bookkeeping Overview</option>
+              <option>Annual Bookkeeping Overview</option>
+            </select>
+          </div>
+          <div class="form-group checkbox">
+            <input type="checkbox" id="disclaimer" required />
+            <label for="disclaimer">I understand this is a review service and not tax or compliance advice.</label>
+          </div>
+        </div>
+        <button class="send-btn" type="submit">Interested</button>
+      </form>
+    </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    Clarity Check © 2025. All rights reserved.
+  </footer>
+
+  <!-- Bootstrap Icons (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+  document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const data = {
+      company: document.getElementById("company").value,
+      name: document.getElementById("name").value,
+      yearEnd: document.getElementById("yearEnd").value,
+      activity: document.getElementById("activity").value,
+      reference: document.getElementById("reference").value,
+      email: document.getElementById("email").value,
+      service: document.getElementById("service").value
+    };
+
+    if (!document.getElementById("disclaimer").checked) {
+      alert("Please accept the disclaimer.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        alert("Thanks! Your message has been sent and a confirmation email has been delivered.");
+        document.getElementById("contactForm").reset();
+      } else {
+        alert("Something went wrong. Please try again later.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Network error. Try again.");
+    }
+  });
+</script>
+
+
+</body>
+</html>

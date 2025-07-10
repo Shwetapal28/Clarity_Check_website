@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clarity Check | Tariff</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+  <style>
+    :root {
+      --deep-blue: #0b3c5d;
+      --aqua: #39cccc;
+    }
+
+    body {
+      font-family: 'Staatliches';
+      background-color: var(--deep-blue);
+      color: white;
+      margin: 0;
+    }
+
+    .navbar {
+      background-color: #032032;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      border-bottom: 2px solid var(--aqua);
+    }
+    .navbar-brand img {
+      height: 50px;
+      width: auto;
+    }
+    .navbar-brand, .nav-link {
+      color: white !important;
+      font-weight: 600;
+    }
+    .nav-link:hover {
+      color: var(--aqua) !important;
+    }
+    .navbar-nav {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .tagline {
+      font-family: 'Staatliches';
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--aqua); 
+      font-size: 1.3rem;
+      padding: 0px;
+      white-space: normal;
+      word-break: break-word;
+      text-align: left;
+    }
+
+    .nav-link {
+      font-size: 1.4rem;
+      padding: 0.7rem 1rem;
+      text-align: center;
+    }
+
+    /* ========== ✅ Responsive Font Adjustments ========== */
+    @media (max-width: 768px) {
+      .tagline {
+        font-size: 0.7rem;
+        text-align: left;
+        padding: 0 10px;
+      }
+      .nav-link {
+        font-size: 0.7rem;
+        padding: 0.6rem 0.8rem;
+      }
+      .navbar-brand div {
+        font-size: 1.1rem;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-link {
+        font-size: 0.7rem;
+      }
+      .navbar-brand div {
+        font-size: 1.3rem;
+      }
+      .tagline {
+        font-size: 0.45rem;
+      }
+    }
+
+    .content-section {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2, h3 {
+      font-family: 'Staatliches';
+      color: var(--aqua);
+    }
+
+    .tariff-card {
+      background-color: #084e70;
+      border-left: 4px solid var(--aqua);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .tariff-card h3 {
+      font-size: 1.5rem;
+    }
+
+    .tariff-card i {
+      font-size: 1.4rem;
+      color: var(--aqua);
+      margin-right: 10px;
+    }
+
+    .tariff-card ul {
+      padding-left: 1.2rem;
+    }
+
+    .tariff-card ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer {
+      background-color: #092d45;
+      border-top: 2px solid var(--aqua);
+      color: white;
+      text-align: left;
+      padding: 15px;
+      font-size: 1rem;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 576px) {
+      .tariff-card {
+        padding: 1rem;
+      }
+
+      .tariff-card h3 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg" style="padding: 0px;">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="images/logo11.png" alt="Clarity Check Logo" class="me-2" />
+        <div class="ms-3" style="line-height: 1.2;">
+          <div style="font-size: 2.5rem;letter-spacing: 0.1em; font-weight: 700; padding: 0px;color: white;">CLARITY CHECK</div>
+          <b><div class="tagline">BRINGING CONFIDENCE TO YOUR NUMBERS.</div></b>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="tariff.html">Tariff</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="content-section">
+    <h2 class="text-center mb-4">Transparent Pricing for Professional Insight</h2>
+
+    <div class="tariff-card">
+      <h3><i class="bi bi-search"></i> Clarity Check (Annual Accounts Review)</h3>
+      <p><strong>£120</strong> per review set – includes a professional analysis of your annual accounts and trial balance.</p>
+      <p>If no notable insights are found, we offer a <strong>50% refund</strong> — ensuring you receive value for money.</p>
+      <p>This independent analytical review is based on client-provided or public financial statements, helping you ask better questions and make informed decisions with your accountant.</p>
+    </div>
+
+    <div class="tariff-card">
+      <h3><i class="bi bi-journal-check"></i> Bookkeeping Overview Services</h3>
+      <ul>
+        <li><strong>Monthly Overview:</strong> £50</li>
+        <li><strong>Quarterly Overview:</strong> £80</li>
+        <li><strong>Annual Overview:</strong> £150</li>
+      </ul>
+      <p>This overview identifies key patterns in your bookkeeping setup — not a line-by-line audit. It’s designed to boost your confidence and support your collaboration with your accountant.</p>
+      <p>🕒 <strong>First-time users:</strong> If no observations are raised, a 50% refund is applied (on first review only).</p>
+      <p>Note: Future pricing may vary depending on time required in previous periods.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    Clarity Check © 2025. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

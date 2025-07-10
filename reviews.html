@@ -1,0 +1,197 @@
+<!-- Updated reviews.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clarity Check | Reviews (Admin)</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Staatliches' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+  <style>
+    :root {
+      --deep-blue: #0b3c5d;
+      --aqua: #39cccc;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: var(--deep-blue);
+      font-family: 'Open Sans', sans-serif;
+      color: white;
+    }
+
+    .page-container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .content-wrap {
+      flex: 1;
+    }
+
+    .navbar {
+      background-color: #092d45;
+      border-bottom: 2px solid var(--aqua);
+    }
+
+    .navbar-brand {
+      font-family: 'Staatliches';
+      font-size: 2rem;
+      color: white !important;
+    }
+
+    .tagline {
+      font-family: 'Staatliches';
+      font-size: 1.2rem;
+      color: var(--aqua);
+    }
+
+    h2 {
+      font-family: 'Staatliches';
+      color: var(--aqua);
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .container {
+      max-width: 800px;
+    }
+
+    .review-box {
+      background-color: #f0f8ff;
+      color: #0b3c5d;
+      border-left: 5px solid var(--aqua);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .footer {
+      background-color: #092d45;
+      color: white;
+      text-align: left;
+      padding: 15px;
+      font-size: 1rem;
+      border-top: 2px solid var(--aqua);
+    }
+
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      color: red;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+<div class="page-container">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <div class="ms-3">
+          <div style="letter-spacing: 0.1em; font-weight: 700;">CLARITY CHECK</div>
+          <div class="tagline">BRINGING CONFIDENCE TO YOUR NUMBERS.</div>
+        </div>
+      </a>
+    </div>
+  </nav>
+
+  <div class="content-wrap">
+    <h2>Client Reviews (Admin Only)</h2>
+
+    <div class="container">
+      <form id="addReviewForm" class="mt-4">
+        <h5 class="text-white">Add New Review</h5>
+        <div class="mb-3">
+          <input type="text" class="form-control" id="clientName" placeholder="Client Name" required>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" id="clientReview" placeholder="Client Review" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-light">Add Review</button>
+      </form>
+
+      <div id="reviewsList" class="mt-5"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    Clarity Check © 2025. All rights reserved.
+  </footer>
+</div>
+
+<script>
+  const form = document.getElementById('addReviewForm');
+  const reviewsList = document.getElementById('reviewsList');
+
+  async function loadReviews() {
+    try {
+      const res = await fetch('http://localhost:5000/api/reviews');
+      const reviews = await res.json();
+      reviewsList.innerHTML = ''; // Clear before loading
+      reviews.forEach(({ _id, name, text }) => appendReview(_id, name, text));
+    } catch (error) {
+      console.error('Failed to load reviews:', error);
+    }
+  }
+
+  function appendReview(id, name, text) {
+    const review = document.createElement('div');
+    review.classList.add('review-box');
+    review.innerHTML = `
+      <strong>${name}</strong><br>"${text}"
+      <button class="delete-btn" onclick="deleteReview('${id}', this)">×</button>
+    `;
+    reviewsList.appendChild(review);
+  }
+
+  async function deleteReview(id, btn) {
+    try {
+      await fetch(`http://localhost:5000/api/reviews/${id}`, {
+        method: 'DELETE'
+      });
+      btn.parentElement.remove();
+    } catch (error) {
+      console.error('Failed to delete review:', error);
+    }
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const name = document.getElementById('clientName').value.trim();
+    const text = document.getElementById('clientReview').value.trim();
+
+    if (!name || !text) return;
+
+    try {
+      const res = await fetch('http://localhost:5000/api/reviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, text })
+      });
+
+      const newReview = await res.json();
+      appendReview(newReview._id, newReview.name, newReview.text);
+      form.reset();
+    } catch (error) {
+      console.error('Failed to add review:', error);
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', loadReviews);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

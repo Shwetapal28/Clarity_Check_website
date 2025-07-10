@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clarity Check</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href='https://fonts.googleapis.com/css?family=Staatliches' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+  <style>
+    :root {
+      --deep-blue: #0b3c5d;
+      --aqua: #39cccc;
+    }
+    body {
+      font-family: 'Staatliches';
+      background-color: var(--deep-blue);
+      color: white;
+      margin: 0;
+      padding: 0;
+      line-height: 1.2;
+    }
+    .navbar {
+      background-color: #032032;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      border-bottom: 2px solid var(--aqua);
+    }
+    .navbar-brand img {
+      height: 50px;
+      width: auto;
+    }
+    .navbar-brand, .nav-link {
+      color: white !important;
+      font-weight: 600;
+    }
+    .nav-link:hover {
+      color: var(--aqua) !important;
+    }
+    .navbar-nav {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tagline {
+      font-family: 'Staatliches';
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--aqua); 
+      font-size: 1.3rem;
+      padding: 0px;
+      white-space: normal;
+      word-break: break-word;
+      text-align: left;
+    }
+
+    .nav-link {
+      font-size: 1.4rem;
+      padding: 0.7rem 1rem;
+      text-align: center;
+    }
+
+    /* ========== ✅ Responsive Font Adjustments ========== */
+    @media (max-width: 768px) {
+      .tagline {
+        font-size: 0.7rem;
+        text-align: left;
+        padding: 0 10px;
+      }
+      .nav-link {
+        font-size: 0.7rem;
+        padding: 0.6rem 0.8rem;
+      }
+      .navbar-brand div {
+        font-size: 1.1rem;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-link {
+        font-size: 0.7rem;
+      }
+      .navbar-brand div {
+        font-size: 1.3rem;
+      }
+      .tagline {
+        font-size: 0.45rem;
+      }
+    }
+
+    .hero-section {
+      padding: 10px 20px 0px 20px;
+      text-align: center;
+    }
+    .hero-title {
+      font-size: 2.2rem;
+      color: white;
+      font-family: 'Staatliches';
+      padding-top: 1.7rem;
+      padding-bottom: 1.5rem;
+    }
+    .hero-subtitle {
+      font-size: 1.6rem;
+      color: var(--aqua);
+      margin-top: 5px;
+      font-family: 'Staatliches';
+      word-wrap: break-word;
+      hyphens: auto;
+    }
+    .intro-section {
+      padding: 0px 20px;
+      text-align: justify;
+      background-color: var(--deep-blue);
+      color: white;
+      font-family: 'Open Sans';
+    }
+    .intro-section p {
+      font-size: 1.1rem;
+    }
+    .intro-section ul {
+      padding-left: 1.2rem;
+    }
+    .why-section {
+      background-color: var(--deep-blue);
+      padding: 10px 20px;
+    }
+    .why-section h2 {
+      color: var(--aqua);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .why-box {
+      margin-bottom: 30px;
+      border: 1px solid var(--aqua);
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .why-box h5 {
+      color: var(--aqua);
+    }
+    .carousel-item p {
+      font-size: 1.5rem;
+      padding: 20px;
+      color: var(--deep-blue);
+      background: #f0f8ff;
+      border-left: 5px solid var(--aqua);
+      height: auto;
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+      filter: invert(100%);
+    }
+    .footer {
+      background-color: #092d45;
+      border-top: 2px solid var(--aqua);
+      color: white;
+      text-align: left;
+      padding: 15px;
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg" style="padding: 0px;">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="images/logo11.png" alt="Clarity Check Logo" class="me-2" />
+        <div class="ms-3" style="line-height: 1.2;">
+          <div style="font-size: 2.5rem;letter-spacing: 0.1em; font-weight: 700; padding: 0px;color: white;">CLARITY CHECK</div>
+          <b><div class="tagline">BRINGING CONFIDENCE TO YOUR NUMBERS.</div></b>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="tariff.html">Tariff</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1 class="hero-title">A Fresh Perspective on Your Accounts — Before They’re Final</h1>
+      <p class="hero-subtitle">Helping business owners gain clarity and confidence in their financials — with thoughtful questions and independent insights.</p>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="intro-section">
+    <div class="container" style="line-height: 1.2;">
+      <p>Managing a small or medium-sized business is challenging—understanding your accounts shouldn’t add to that stress.</p>
+      <p>At Clarity Check, we offer a second opinion accountant UK service designed to give business owners a clarity check for business accounts. Our goal is to provide clarity, insight, and confidence by offering an independent account review UK—helping you better understand your financial position without disrupting your current relationship with your accountant.</p>
+      <p>We review business accounts using draft versions of your final statements—usually accessible via Companies House—alongside a comparative trial balance with figures from both the current and previous year. Because this information is already summarised and will soon be public, you won’t need to share internal data. This ensures our process is simple, secure, and non-intrusive.</p>
+      <p>With years of hands-on experience preparing and reviewing accounts, we provide expert analysis that:</p>
+        <ul>
+          <li>Highlights key financial observations</li>
+          <li>Raises important questions to verify business accounts</li>
+          <li>Helps you check your accountant’s work with informed insights</li>
+        </ul>  
+      <p>Our account review service UK is designed to bridge the gap between accountants and business owners—so you can ask better questions, make smarter decisions, and take control of your financial understanding.</p>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Button -->
+  <div class="text-center my-4">
+    <a href="services.html" class="btn btn-outline-light btn-lg" style="border-color: var(--aqua); color: var(--aqua);">
+      How Clarity Check Works
+    </a>
+  </div>
+
+  <!-- Why Clients Choose Us -->
+  <section class="why-section text-center">
+    <div class="container">
+      <h2>Why Clients Choose Us</h2></br>
+      <div id="carouselWhy" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" style="letter-spacing: 0.1em;">
+          <div class="carousel-item active">
+            <p><strong>Experienced & Insight-Driven:</strong> Our team brings years of experience reviewing accounts for small and medium-sized UK businesses. We raise meaningful questions from minimal data.</p>
+          </div>
+          <div class="carousel-item">
+            <p><strong>Simple & Confidential:</strong> We only use public records and high-level trial balances — so there's no need to share sensitive details. Your privacy and comfort come first.</p>
+          </div>
+          <div class="carousel-item">
+            <p><strong>Clarity Without Complexity:</strong> No accounting jargon. Just thoughtful, easy-to-follow observations to help you make confident business decisions.</p>
+          </div>
+          <div class="carousel-item">
+            <p><strong>A Thoughtful, Respectful Approach :</strong> We provide support that complements your accountant’s role, not competes with it.</p>
+          </div>
+        </div></br>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselWhy" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselWhy" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    Clarity Check © 2025. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Auto-close mobile nav on link click
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('#navbarNav');
+        if (navbarToggler.offsetParent !== null && navbarCollapse.classList.contains('show')) {
+          navbarToggler.click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

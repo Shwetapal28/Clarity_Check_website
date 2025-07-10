@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clarity Check</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --deep-blue: #0b3c5d;
+      --aqua: #39cccc;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: white;
+      background-color: #000;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url('Images/background_image.png') no-repeat center center/cover;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65); /* Stronger dark overlay */
+      z-index: 1;
+    }
+
+    .top-bar {
+      position: absolute;
+      top: 20px;
+      left: 70px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-bar img {
+      height: 60px;
+    }
+
+    .brand-text {
+      font-family: 'Staatliches', sans-serif;
+      font-size: 3.2rem;
+      color: white;
+      letter-spacing: 2px;
+    }
+
+    .navbar {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+    }
+
+    .navbar-toggler {
+      border: none;
+      filter: invert(1);
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+      font-family: 'Staatliches', sans-serif;
+      font-size: 1.9rem;
+      color: white;
+      margin-left: 20px;
+    }
+
+    .navbar-light .navbar-nav .nav-link:hover {
+      color: var(--aqua);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 60px;
+      margin-left: 27px;
+      
+    }
+
+    .hero h1 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 6.2rem;
+      line-height: 1.1;
+      letter-spacing: 0.5px;
+      color: var(--aqua);
+      margin-bottom: 20px;
+      margin-top: 60px;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      line-height: 1.4;
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .cta-button {
+      background-color: var(--deep-blue);
+      color: white;
+      padding: 10px 20px;
+      font-size: 1.4rem;
+      font-weight: 600;
+      border: solid var(--deep-blue);
+      margin: 4px 2px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.3s ease;
+      height: 4rem;
+      width: 14rem;
+      text-align: center;
+    }
+
+    .cta-button:hover {
+      background-color: var(--aqua);
+      color: #0b3c5d;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        padding: 0 30px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .brand-text {
+        font-size: 1.8rem;
+      }
+
+      .top-bar img {
+        height: 45px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+      .cta-button {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+
+    <!-- Top Branding -->
+    <div class="top-bar">
+      <img src="Images/logo11.png" alt="Clarity Check Logo">
+      <div class="brand-text">CLARITY CHECK</div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="tariff.html">Tariff</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Text -->
+    <div class="hero-content">
+      <h1>BRINGING CONFIDENCE </br>TO YOUR NUMBERS</h1>
+      <p>We take pride in helping small business owners gain clarity<br>
+      and confidence on their financials – with thoughtful<br>
+      questions and independent insights.</p>
+      <a href="aboutus.html" class="cta-button">Learn More</a>
+    </div>
+
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
