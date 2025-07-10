@@ -77,9 +77,11 @@ app.get("/", (req, res) => {
 });
 
 // ✅ Serve index.html for unknown routes (important for Render)
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/index.html"));
-});
+//app.get("*", (req, res) => {
+//  res.sendFile(path.join(__dirname, "/public/index.html"));
+//});
+
+app.use(express.static(path.join(__dirname, "public")));
 
 app.listen(PORT, () => {
   console.log(`✅ Server running at http://localhost:${PORT}`);
