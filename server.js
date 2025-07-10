@@ -3,13 +3,15 @@ const nodemailer = require("nodemailer");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const path = require("path");
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(express.static("public")); // Make sure your HTML/CSS/JS is served from a 'public' folder
+app.use(express.static("public")); // Static frontend
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -68,6 +70,11 @@ Clarity Check Team`,
     console.error("Email Error:", error);
     res.status(500).json({ message: "Email failed" });
   }
+});
+
+// ✅ Serve index.html for unknown routes (important for Render)
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
 
 app.listen(PORT, () => {
