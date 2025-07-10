@@ -72,9 +72,13 @@ Clarity Check Team`,
   }
 });
 
+app.get("/", (req, res) => {
+  res.send("✅ Server is running!");
+});
+
 // ✅ Serve index.html for unknown routes (important for Render)
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 app.listen(PORT, () => {
