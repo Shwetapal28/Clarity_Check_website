@@ -6,8 +6,16 @@
   <title>Clarity Check | Tariff</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+ <!-- <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />-->
+
+  <!-- Updated Staatliches font -->
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+
+<!-- Updated Open Sans with multiple weights -->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+
   <style>
     :root {
       --deep-blue: #0b3c5d;
@@ -15,34 +23,43 @@
     }
 
     body {
-      font-family: 'Staatliches';
+      font-family: 'Open Sans';
       background-color: var(--deep-blue);
       color: white;
       margin: 0;
     }
 
     .navbar {
+      font-family: 'Open Sans';
       background-color: #032032;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       border-bottom: 2px solid var(--aqua);
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
+
     .navbar-brand img {
       height: 50px;
       width: auto;
     }
+
     .navbar-brand, .nav-link {
       color: white !important;
       font-weight: 600;
     }
+
     .nav-link:hover {
       color: var(--aqua) !important;
     }
+
     .navbar-nav {
       flex-wrap: wrap;
       justify-content: center;
     }
+
     .tagline {
-      font-family: 'Staatliches';
+      font-family: 'Staatliches', sans-serif;
       font-weight: 500;
       letter-spacing: 0.1em;
       color: var(--aqua); 
@@ -59,7 +76,6 @@
       text-align: center;
     }
 
-    /* ========== ✅ Responsive Font Adjustments ========== */
     @media (max-width: 768px) {
       .tagline {
         font-size: 0.7rem;
@@ -95,9 +111,10 @@
     }
 
     h2, h3 {
-      font-family: 'Staatliches';
-      color: var(--aqua);
-    }
+  font-weight: 700; /* replace '4rem' */
+  font-family: 'Open Sans';
+  color: var(--aqua);
+}
 
     .tariff-card {
       background-color: #084e70;
@@ -150,7 +167,7 @@
 <body>
   <nav class="navbar navbar-expand-lg" style="padding: 0px;">
     <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="#">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
         <img src="Images/logo11.png" alt="Clarity Check Logo" class="me-2" />
         <div class="ms-3" style="line-height: 1.2;">
           <div style="font-size: 2.5rem;letter-spacing: 0.1em; font-weight: 700; padding: 0px;color: white;">CLARITY CHECK</div>
@@ -176,14 +193,14 @@
     <h2 class="text-center mb-4">Transparent Pricing for Professional Insight</h2>
 
     <div class="tariff-card">
-      <h3><i class="bi bi-search"></i> Clarity Check (Annual Accounts Review)</h3>
+      <h3><i class="bi bi-search"></i> CLARITY CHECK (Annual accounts review)</h3>
       <p><strong>£120</strong> per review set – includes a professional analysis of your annual accounts and trial balance.</p>
       <p>If no notable insights are found, we offer a <strong>50% refund</strong> — ensuring you receive value for money.</p>
       <p>This independent analytical review is based on client-provided or public financial statements, helping you ask better questions and make informed decisions with your accountant.</p>
     </div>
 
     <div class="tariff-card">
-      <h3><i class="bi bi-journal-check"></i> Bookkeeping Overview Services</h3>
+      <h3><i class="bi bi-journal-check"></i> BOOKKEEPING OVERVIEW SERVICES</h3>
       <ul>
         <li><strong>Monthly Overview:</strong> £50</li>
         <li><strong>Quarterly Overview:</strong> £80</li>
@@ -193,6 +210,13 @@
       <p>🕒 <strong>First-time users:</strong> If no observations are raised, a 50% refund is applied (on first review only).</p>
       <p>Note: Future pricing may vary depending on time required in previous periods.</p>
     </div>
+
+    <!-- Call-to-Action Button -->
+  <div class="text-center my-4">
+    <a href="contact.html" class="btn btn-outline-light btn-lg" style="border-color: var(--aqua); color: var(--aqua);">
+      Get in touch 
+    </a>
+  </div>
   </section>
 
   <footer class="footer">

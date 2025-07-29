@@ -3,10 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clarity Check — Services</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href='https://fonts.googleapis.com/css?family=Staatliches' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+  <title>Clarity Check | Tariff</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+ <!-- <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />-->
+
+  <!-- Updated Staatliches font -->
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+
+<!-- Updated Open Sans with multiple weights -->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+
   <style>
     :root {
       --deep-blue: #0b3c5d;
@@ -19,30 +28,40 @@
       margin: 0;
       padding: 0;
       line-height: 1.3;
+      text-align: justify;
+      font-weight: 1rem;
     }
     .navbar {
+      font-family: 'Open Sans';
       background-color: #032032;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       border-bottom: 2px solid var(--aqua);
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
+
     .navbar-brand img {
       height: 50px;
       width: auto;
     }
+
     .navbar-brand, .nav-link {
       color: white !important;
       font-weight: 600;
     }
+
     .nav-link:hover {
       color: var(--aqua) !important;
     }
+
     .navbar-nav {
       flex-wrap: wrap;
       justify-content: center;
     }
 
     .tagline {
-      font-family: 'Staatliches';
+      font-family: 'Staatliches', sans-serif;
       font-weight: 500;
       letter-spacing: 0.1em;
       color: var(--aqua); 
@@ -59,22 +78,6 @@
       text-align: center;
     }
 
-    .disclaimer-card {
-      background-color: #084e70;
-      border-left: 4px solid var(--aqua);
-      border-radius: 10px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    @media (max-width: 576px) {
-      .disclaimer-card {
-        padding: 1rem;
-      }
-    }
-
-    /* ========== ✅ Responsive Font Adjustments ========== */
     @media (max-width: 768px) {
       .tagline {
         font-size: 0.7rem;
@@ -110,6 +113,7 @@
       font-family: 'Staatliches';
       color: var(--aqua);
       margin-bottom: 1rem;
+      font-size: 2.3rem;
     }
     p, ul {
       font-size: 1.1rem;
@@ -145,7 +149,7 @@
 <body>
   <nav class="navbar navbar-expand-lg" style="padding: 0px;">
     <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="#">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
         <img src="Images/logo11.png" alt="Clarity Check Logo" class="me-2" />
         <div class="ms-3" style="line-height: 1.2;">
           <div style="font-size: 2.5rem;letter-spacing: 0.1em; font-weight: 700; padding: 0px;color: white;">CLARITY CHECK</div>
@@ -167,29 +171,31 @@
     </div>
   </nav>
 
-  <main style="display: flex; justify-content: center;">
+  <main style="display: flex; justify-content: center; margin-top: 20px;">
+
     <div class="container" >
+      
       <h1 style="text-align: center;">Clarity Check — Gain Clearer Insights into Your Financials</h1>
 
       <p>Clarity Check is our signature service designed to offer business owners an independent and experience-led analytical perspective on their accounts.</p>
 
       <p>We will review:</p>
       <ul>
-        <li>The draft final accounts (as filed or to be filed with Companies House, hence already public)</li>
-        <li>A comparative trial balance, which forms the basis of the financial figures</li>
+        <li>The Draft final accounts (as filed or to be filed with Companies House, hence already public)</li>
+        <li>A comparative trial balance, which forms the basis of the financial figures reflecting on the above accounts.</li>
       </ul>
 
-      <p>We use our financial understanding and expertise to analyse the reports and identify trends, inconsistencies, or unusual entries. The goal is not to interpret every number for you, but to highlight areas worth considering and discussing with your accountant, if needed. It provides a capable and independent perspective to guide your focus and increase your control over business finances.</p>
+      <p>We use our financial understanding and expertise to analyse the reports and identify trends, inconsistencies, or unusual patterns. The goal is not to interpret every number for you, but to highlight areas worth considering and discussing with your accountant, if needed. It provides a capable and independent perspective to guide your focus and increase your control over business financial reporting.</p>
 
       <p>Our insights are based on our professional experience and are intended to give you an objective external point of view. Please note that if no observations are raised, it simply means we did not find anything noteworthy to report during our analysis. However, since this is not a detailed audit, we do not assume any responsibility for the completeness or accuracy of the financials.</p>
 
-      <p>Additionally, there may be cases where our observations are already considered during the preparation of accounts and have no material impact—but our notes remain as part of our independent review.</p>
+      <p>Additionally, there may be cases where our observations may have already been considered in your financial process and may not lead to material changes—but they remain valid insights from an external viewpoint.</p>
 
-      <ul>
+<!--      <ul>
         <li>Not a critique, but a support to enrich your awareness</li>
         <li>Raises thoughtful questions based on trends and entries</li>
         <li>Independent insights shaped by financial expertise</li>
-      </ul>
+      </ul>-->
 
       <p>This service is ideal for clients who:</p>
       <ul>
@@ -200,7 +206,20 @@
 
       <p>Our goal is to bridge the communication gap between accountants and business owners by offering the benefit of experienced insight to support smarter business decisions and helping you ask better, more informed questions.</p>
 
-      <p><strong>Turnaround Time:</strong> Within 5–7 working days of receiving your reports.</p>
+      <!--<p><strong>Turnaround Time:</strong> Within 5–7 working days of receiving your reports.</p>-->
+
+<div class="row align-items-center">
+  <div class="col-md-8 col-sm-12">
+    <p class="mb-0">
+      <strong>Turnaround Time:</strong> Within 5–7 working days of receiving your reports.
+    </p>
+  </div>
+  <div class="col-md-4 col-sm-12 text-md-end text-sm-start mt-sm-2 mt-md-0">
+    <a href="tariff.html" class="btn btn-outline-light" style="border-color: var(--aqua); color: var(--aqua);">
+      View Pricing
+    </a>
+  </div>
+</div>
 
       <hr style="border-color: var(--aqua);" />
 
@@ -211,19 +230,34 @@
       <p>Unlike Clarity Check, this service requires access to your bookkeeping software or exported records. We do not perform a line-by-line or detailed transaction review. Instead, using access to your accounting software (like QuickBooks, Xero, FreeAgent), we review your bookkeeping at a summary level—looking for patterns, inconsistencies, and trends that may warrant a second look.</p>
 
       <p>Drawing on our practical knowledge and experience, we raise questions that help you maintain clean, consistent records and prepare with confidence for future filings. This is a value-driven service, not a technical critique.</p>
-
-      <ul>
+ 
+      <p>If this is your first time using this service and no observations are raised, 50% of the fee will be refunded. No refunds will apply for future periods without observations.</p>
+   <!--   <ul>
         <li>Based on software access—no need for exporting or uploading data</li>
         <li>Designed to raise thoughtful queries, not to challenge your accountant</li>
         <li>A broad check to enhance your financial hygiene and confidence</li>
         <li>If this is your first time using this service and no observations are raised, 50% of the fee will be refunded. No refunds will apply for future periods without observations.</li>
-      </ul>
+      </ul>-->
 
       <p>If no observations are raised, it means that, based on our analysis, we did not find anything that stood out or required flagging. This is not an audit or formal review—we do not take responsibility for the accuracy or completeness of the records.</p>
 
       <p>Please note: Observations are based on our independent, professional perspective. Some of these may have already been considered in your financial process and may not lead to material changes—but they remain valid insights from an external viewpoint.</p>
 
-      <p><strong>Turnaround Time:</strong> Within 5–7 working days of receiving access to your bookkeeping software.</p>
+      <!--<p><strong>Turnaround Time:</strong> Within 5–7 working days of receiving access to your bookkeeping software.</p>-->
+
+<div class="row align-items-center">
+  <div class="col-md-8 col-sm-12">
+    <p class="mb-0">
+      <strong>Turnaround Time:</strong> Within 5–7 working days of receiving access to your bookkeeping software.
+    </p>
+  </div>
+  <div class="col-md-4 col-sm-12 text-md-end text-sm-start mt-sm-2 mt-md-0">
+    <a href="tariff.html" class="btn btn-outline-light" style="border-color: var(--aqua); color: var(--aqua);">
+      View Pricing
+    </a>
+  </div>
+</div>
+
 
       <hr style="border-color: var(--aqua);" />
 

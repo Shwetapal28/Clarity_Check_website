@@ -3,10 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clarity Check</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href='https://fonts.googleapis.com/css?family=Staatliches' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+  <title>Clarity Check | Tariff</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+ <!-- <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />-->
+
+  <!-- Updated Staatliches font -->
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+
+<!-- Updated Open Sans with multiple weights -->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+
   <style>
     :root {
       --deep-blue: #0b3c5d;
@@ -18,31 +27,41 @@
       color: white;
       margin: 0;
       padding: 0;
-      line-height: 1.2;
+      line-height: 1.3;
+      text-align: justify;
+      font-weight: 1rem;
     }
     .navbar {
+      font-family: 'Open Sans';
       background-color: #032032;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       border-bottom: 2px solid var(--aqua);
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
+
     .navbar-brand img {
       height: 50px;
       width: auto;
     }
+
     .navbar-brand, .nav-link {
       color: white !important;
       font-weight: 600;
     }
+
     .nav-link:hover {
       color: var(--aqua) !important;
     }
+
     .navbar-nav {
       flex-wrap: wrap;
       justify-content: center;
     }
 
     .tagline {
-      font-family: 'Staatliches';
+      font-family: 'Staatliches', sans-serif;
       font-weight: 500;
       letter-spacing: 0.1em;
       color: var(--aqua); 
@@ -59,7 +78,6 @@
       text-align: center;
     }
 
-    /* ========== ✅ Responsive Font Adjustments ========== */
     @media (max-width: 768px) {
       .tagline {
         font-size: 0.7rem;
@@ -87,7 +105,6 @@
         font-size: 0.45rem;
       }
     }
-
     .hero-section {
       padding: 10px 20px 0px 20px;
       text-align: center;
@@ -164,7 +181,7 @@
 <body>
   <nav class="navbar navbar-expand-lg" style="padding: 0px;">
     <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="#">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
         <img src="Images/logo11.png" alt="Clarity Check Logo" class="me-2" />
         <div class="ms-3" style="line-height: 1.2;">
           <div style="font-size: 2.5rem;letter-spacing: 0.1em; font-weight: 700; padding: 0px;color: white;">CLARITY CHECK</div>
@@ -188,24 +205,25 @@
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="container">
-      <h1 class="hero-title">A Fresh Perspective on Your Accounts — Before They’re Final</h1>
-      <p class="hero-subtitle">Helping business owners gain clarity and confidence in their financials — with thoughtful questions and independent insights.</p>
+      <h1 class="hero-title">Get a Second Opinion on Your Business Accounts — Before They’re Final</h1>
+      <p class="hero-subtitle">Helping UK business owners gain clarity and confidence through an independent financial review of draft accounts.</p>
     </div>
   </section>
 
   <!-- Intro Section -->
   <section class="intro-section">
     <div class="container" style="line-height: 1.2;">
-      <p>Managing a small or medium-sized business is challenging—understanding your accounts shouldn’t add to that stress.</p>
-      <p>At Clarity Check, we offer a second opinion accountant UK service designed to give business owners a clarity check for business accounts. Our goal is to provide clarity, insight, and confidence by offering an independent account review UK—helping you better understand your financial position without disrupting your current relationship with your accountant.</p>
-      <p>We review business accounts using draft versions of your final statements—usually accessible via Companies House—alongside a comparative trial balance with figures from both the current and previous year. Because this information is already summarised and will soon be public, you won’t need to share internal data. This ensures our process is simple, secure, and non-intrusive.</p>
-      <p>With years of hands-on experience preparing and reviewing accounts, we provide expert analysis that:</p>
+      <p><b>Clarity Check: </b><b><br>
+      Running a small or medium-sized business is demanding — and reviewing your accounts shouldn't add to the stress. Clarity Check is a specialist accounting review service offering business owners a fresh, unbiased perspective on their financial statements — without interfering with your relationship with your existing accountant.</p>
+      <p>We provide a second opinion on your draft accounts, focusing on clarity, accuracy, and insight. Using the draft accounts later available via Companies House and a comparative trial balance (current vs. prior year), we deliver an independent, expert review — no access to internal systems or sensitive data required.</p>
+      <p>Our simple, secure, and non-intrusive process draws on years of experience preparing and reviewing accounts. You’ll receive key financial observations and thoughtful, strategic questions you can raise with your accountant — empowering you to make better-informed decisions.</p>
+      <p>With years of hands-on experience preparing and reviewing accounts, we provide expert analysis that:</p>  
         <ul>
           <li>Highlights key financial observations</li>
           <li>Raises important questions to verify business accounts</li>
-          <li>Helps you check your accountant’s work with informed insights</li>
+          <li>Helps you finalise your accounts work with informed insights</li>
         </ul>  
-      <p>Our account review service UK is designed to bridge the gap between accountants and business owners—so you can ask better questions, make smarter decisions, and take control of your financial understanding.</p>
+      <p>Whether you’re unsure about your current numbers or just want peace of mind, Clarity Check helps you bridge the gap between accountants and business owners with practical insights and financial transparency — so you can ask better questions, make smarter decisions, and take control of your financial understanding.</p>
     </div>
   </section>
 

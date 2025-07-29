@@ -3,9 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clarity Check | Contact</title>
+  <title>Clarity Check | Tariff</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Open+Sans&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+ <!-- <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />-->
+
+  <!-- Updated Staatliches font -->
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+
+<!-- Updated Open Sans with multiple weights -->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --deep-blue: #0b3c5d;
@@ -13,37 +22,45 @@
     }
 
     body {
-      font-family: 'Staatliches';
+      font-family: 'Open Sans', sans-serif;
       background-color: var(--deep-blue);
       color: white;
       margin: 0;
       padding: 0;
-      line-height: 1.2;
+      line-height: 1.5;
     }
 
     .navbar {
+      font-family: 'Open Sans';
       background-color: #032032;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       border-bottom: 2px solid var(--aqua);
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
+
     .navbar-brand img {
       height: 50px;
       width: auto;
     }
+
     .navbar-brand, .nav-link {
       color: white !important;
       font-weight: 600;
     }
+
     .nav-link:hover {
       color: var(--aqua) !important;
     }
+
     .navbar-nav {
       flex-wrap: wrap;
       justify-content: center;
     }
 
     .tagline {
-      font-family: 'Staatliches';
+      font-family: 'Staatliches', sans-serif;
       font-weight: 500;
       letter-spacing: 0.1em;
       color: var(--aqua); 
@@ -60,7 +77,28 @@
       text-align: center;
     }
 
-    /* ========== ✅ Responsive Font Adjustments ========== */
+    .disclaimer-box {
+      background-color: #f9f9f9;
+      padding: 1rem 1.25rem;
+      border-left: 4px solid #0b3c5d;
+      border-radius: 5px;
+      font-size: 0.95rem;
+      color: #333;
+      margin-top: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-check-label {
+  font-size: 0.95rem;
+}
+
+form .disclaimer {
+  font-size: 0.85rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+
     @media (max-width: 768px) {
       .tagline {
         font-size: 0.7rem;
@@ -89,7 +127,7 @@
       }
     }
 
-     .contact-container {
+    .contact-container {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -105,21 +143,24 @@
       border-radius: 8px;
       overflow: hidden;
       background: white;
+      color: #333;
     }
 
     .contact-left {
       background-color: #32698b;
       color: white;
-      padding: 2rem;  
+      padding: 2rem;
       width: 30%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      font-family: 'Open Sans', sans-serif;
     }
 
     .contact-left h3 {
       font-size: 1.2rem;
       margin-bottom: 1.5rem;
+      font-family: 'Staatliches', sans-serif;
     }
 
     .contact-left p {
@@ -131,23 +172,13 @@
       margin-right: 0.5rem;
     }
 
-    .socials {
-      margin-top: 2rem;
-    }
-
-    .socials a {
-      color: white;
-      font-size: 1.2rem;
-      margin-right: 1rem;
-      text-decoration: none;
-    }
-
     .contact-right {
       padding: 2rem 3rem;
       width: 70%;
     }
 
     .contact-right h2 {
+      font-family: 'Staatliches', sans-serif;
       color: #0b3c5d;
       margin-bottom: 1.5rem;
     }
@@ -161,6 +192,7 @@
     .form-group {
       display: flex;
       flex-direction: column;
+      font-family: 'Open Sans', sans-serif;
     }
 
     .form-group label {
@@ -200,9 +232,9 @@
     }
 
     .form-group.checkbox {
-      display: inline-block;
-      align-items: left;
-      gap: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
       font-size: 1rem;
       margin-top: 1rem;
       grid-column: span 2;
@@ -220,7 +252,7 @@
     }
 
     .send-btn:hover {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       background-color: #32698b;
     }
 
@@ -228,16 +260,18 @@
       .contact-card {
         flex-direction: column;
       }
+
       .contact-left,
       .contact-right {
         width: 100%;
       }
+
       .form-grid {
         grid-template-columns: 1fr;
       }
     }
 
-   .footer {
+    .footer {
       background-color: #092d45;
       border-top: 2px solid var(--aqua);
       color: white;
@@ -249,13 +283,14 @@
   </style>
 </head>
 <body>
+
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg" style="padding: 0px;">
     <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="#">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
         <img src="Images/logo11.png" alt="Clarity Check Logo" class="me-2" />
         <div class="ms-3" style="line-height: 1.2;">
-          <div style="font-size: 2.5rem;letter-spacing: 0.1em; font-weight: 700; padding: 0px;color: white;font-family: 'Staatliches';">CLARITY CHECK</div>
+          <div style="font-size: 2.5rem;letter-spacing: 0.1em; font-weight: 700; padding: 0px;color: white;">CLARITY CHECK</div>
           <b><div class="tagline">BRINGING CONFIDENCE TO YOUR NUMBERS.</div></b>
         </div>
       </a>
@@ -274,75 +309,72 @@
     </div>
   </nav>
 
-  <!-- Contact Form Layout -->
-    <div class="contact-container">
+  <!-- Contact Section -->
+  <div class="contact-container">
     <div class="contact-card">
-      <!-- Left Info Panel -->
       <div class="contact-left">
         <div>
           <h3>Contact Info</h3>
           <p><i class="bi bi-envelope-fill"></i>queries@clarity-check.co.uk</p>
-          <p><i class="bi bi-telephone-fill"></i>+44 1234 567890</p>
+          <p><i class="bi bi-telephone-fill"></i>+44 7867246050</p>
         </div>
-       <!-- <div class="socials">
-          <a href="#"><i class="bi bi-facebook"></i></a>
-          <a href="#"><i class="bi bi-twitter"></i></a>
-          <a href="#"><i class="bi bi-instagram"></i></a>
-          <a href="#"><i class="bi bi-linkedin"></i></a>
-        </div>-->
       </div>
-
-      <!-- Right Form Panel -->
-      <!-- ... your unchanged head and navbar ... -->
-
-<!-- Right Form Panel -->
-    <div class="contact-right">
-      <h2>Get In Touch</h2>
-      <form id="contactForm">
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="company">Company Name</label>
-            <input type="text" id="company" placeholder="Company Name" required />
-          </div>
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" placeholder="Your Name" required />
-          </div>
-          <div class="form-group">
-            <label for="yearEnd">Year/Period End Date</label>
-            <input type="date" id="yearEnd" required />
-          </div>
-          <div class="form-group">
-            <label for="activity">Principal Activity of Business</label>
-            <input type="text" id="activity" placeholder="e.g. Retail, Consulting..." required />
-          </div>
-          <div class="form-group">
-            <label for="reference">Reference (Optional)</label>
-            <input type="text" id="reference" placeholder="Reference or promo code" />
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="you@example.com" required />
-          </div>
-          <div class="form-group full">
-            <label for="service">Select Service</label>
-            <select id="service" required>
-              <option value="">-- Choose a Service --</option>
-              <option>Clarity Check of Annual Accounts</option>
-              <option>Monthly Bookkeeping Overview</option>
-              <option>Quarterly Bookkeeping Overview</option>
-              <option>Annual Bookkeeping Overview</option>
-            </select>
-          </div>
-          <div class="form-group checkbox">
-            <input type="checkbox" id="disclaimer" required />
-            <label for="disclaimer">I understand this is a review service and not tax or compliance advice.</label>
-          </div>
-        </div>
-        <button class="send-btn" type="submit">Interested</button>
-      </form>
-    </div>
-
+      <div class="contact-right">
+        <h2>Get In Touch</h2>
+        <form id="contactForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="company">Company Name</label>
+              <input type="text" id="company" placeholder="Company Name" required />
+            </div>
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <label for="yearEnd">Year/Period End Date</label>
+              <input type="date" id="yearEnd" required />
+            </div>
+            <div class="form-group">
+              <label for="activity">Principal Activity of Business</label>
+              <input type="text" id="activity" placeholder="e.g. Retail, Consulting..." required />
+            </div>
+            <div class="form-group">
+              <label for="reference">Reference (Optional)</label>
+              <input type="text" id="reference" placeholder="Reference or promo code" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group full">
+              <label for="service">Select Service</label>
+              <select id="service" required>
+                <option value="">-- Choose a Service --</option>
+                <option>Clarity Check of Annual Accounts</option>
+                <option>Monthly Bookkeeping Overview</option>
+                <option>Quarterly Bookkeeping Overview</option>
+                <option>Annual Bookkeeping Overview</option>
+              </select>
+            </div>
+          </div><br>
+                      <!-- Checkbox confirmation -->
+<div class="mb-3 form-check">
+  <input class="form-check-input" type="checkbox" id="disclaimerCheck" required>
+  <label class="form-check-label" for="disclaimerCheck">
+    I confirm that I have read and understood the disclaimer provided below.
+  </label>
+</div>
+           <!-- Disclaimer box below form -->
+            <div class="disclaimer-box mt-3">
+              <strong>Disclaimer:</strong><br>
+              Our reviews are based on limited or publicly available financial information. All insights are meant to support—not replace—your decision-making process.<br>
+              If no observations are raised, it means that we did not find anything that stood out or required flagging. This is not an audit or formal review—we do not take responsibility for the accuracy or completeness of the records.<br>
+              We reserve the right to decline service to any client. Our observations are professional opinions based on our independent review and may reflect matters already considered in account preparation. Nonetheless, they represent valid, external input.
+            </div>
+          <button class="send-btn" type="submit">Interested</button>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -350,49 +382,53 @@
     Clarity Check © 2025. All rights reserved.
   </footer>
 
-  <!-- Bootstrap Icons (CDN) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-  document.getElementById("contactForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
+    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    const data = {
-      company: document.getElementById("company").value,
-      name: document.getElementById("name").value,
-      yearEnd: document.getElementById("yearEnd").value,
-      activity: document.getElementById("activity").value,
-      reference: document.getElementById("reference").value,
-      email: document.getElementById("email").value,
-      service: document.getElementById("service").value
-    };
+      const data = {
+        company: document.getElementById("company").value,
+        name: document.getElementById("name").value,
+        yearEnd: document.getElementById("yearEnd").value,
+        activity: document.getElementById("activity").value,
+        reference: document.getElementById("reference").value,
+        email: document.getElementById("email").value,
+        service: document.getElementById("service").value
+      };
 
-    if (!document.getElementById("disclaimer").checked) {
-      alert("Please accept the disclaimer.");
-      return;
-    }
-
-    try {
-      const response = await fetch("http://localhost:3000/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
-
-      if (response.ok) {
-        alert("Thanks! Your message has been sent and a confirmation email has been delivered.");
-        document.getElementById("contactForm").reset();
-      } else {
-        alert("Something went wrong. Please try again later.");
+      if (!document.getElementById("disclaimerCheck").checked) {
+        alert("Please accept the disclaimer.");
+        return;
       }
-    } catch (err) {
-      console.error(err);
-      alert("Network error. Try again.");
-    }
-  });
-</script>
 
+      
 
+      try {
+        const response = await fetch("http://localhost:3000/send", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          alert(
+            "Thank you for reaching out to Clarity Check.\n" +
+            "An acknowledgement email has just been sent to the address you provided.\n\n" +
+            "We’d appreciate it if you could kindly reply or confirm receipt — it helps us stay connected and reassures us that our message reached you.\n\n" +
+            "We’ll get back to you within 3–4 working days.\n\n" +
+            "Thank you again!"
+          );
+          document.getElementById("contactForm").reset();
+        } else {
+          alert("Something went wrong. Please try again later.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Network error. Try again.");
+      }
+    });
+  </script>
 </body>
 </html>
