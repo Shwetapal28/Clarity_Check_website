@@ -316,7 +316,7 @@ form .disclaimer {
         <div>
           <h3>Contact Info</h3>
           <p><i class="bi bi-envelope-fill"></i>queries@clarity-check.co.uk</p>
-          <p><i class="bi bi-telephone-fill"></i>+44 7867246050</p>
+          <!--<p><i class="bi bi-telephone-fill"></i>+44 7867246050</p>-->
         </div>
       </div>
       <div class="contact-right">
@@ -403,10 +403,10 @@ form .disclaimer {
         return;
       }
 
-      
+
 
       try {
-        const response = await fetch("http://localhost:3000/send", {
+        const response = await fetch("https://clarity-check.co.uk/send", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data)
