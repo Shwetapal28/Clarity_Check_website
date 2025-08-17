@@ -1,14 +1,19 @@
-<!-- Updated reviews.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clarity Check | Reviews (Admin)</title>
+  <title>Clarity Check | Tariff</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+ <!-- <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />-->
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Staatliches' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+  <!-- Updated Staatliches font -->
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+
+<!-- Updated Open Sans with multiple weights -->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -24,6 +29,84 @@
       color: white;
     }
 
+    .navbar {
+      font-family: 'Open Sans';
+      background-color: #032032;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      border-bottom: 2px solid var(--aqua);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .navbar-brand img {
+      height: 50px;
+      width: auto;
+    }
+
+    .navbar-brand, .nav-link {
+      font-family: 'Staatliches', sans-serif;
+      font-size: 1.9rem;
+      color: white;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-link:hover {
+      color: var(--aqua) !important;
+    }
+
+    .navbar-nav {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tagline {
+      font-family: 'Staatliches', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--aqua); 
+      font-size: 1.3rem;
+      padding: 0px;
+      white-space: normal;
+      word-break: break-word;
+      text-align: left;
+    }
+
+    .nav-link {
+      font-size: 1.8rem;
+      padding: 0.7rem 1rem;
+      text-align: center;
+      font-weight: 2.0rem;
+    }
+
+    @media (max-width: 768px) {
+      .tagline {
+        font-size: 0.7rem;
+        text-align: left;
+        padding: 0 10px;
+      }
+      .nav-link {
+        font-size: 0.7rem;
+        padding: 0.6rem 0.8rem;
+      }
+      .navbar-brand div {
+        font-size: 1.1rem;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-link {
+        font-size: 0.7rem;
+      }
+      .navbar-brand div {
+        font-size: 1.3rem;
+      }
+      .tagline {
+        font-size: 0.45rem;
+      }
+    }
+
     .page-container {
       display: flex;
       flex-direction: column;
@@ -34,23 +117,7 @@
       flex: 1;
     }
 
-    .navbar {
-      background-color: #092d45;
-      border-bottom: 2px solid var(--aqua);
-    }
-
-    .navbar-brand {
-      font-family: 'Staatliches';
-      font-size: 2rem;
-      color: white !important;
-    }
-
-    .tagline {
-      font-family: 'Staatliches';
-      font-size: 1.2rem;
-      color: var(--aqua);
-    }
-
+    
     h2 {
       font-family: 'Staatliches';
       color: var(--aqua);
@@ -96,14 +163,27 @@
 
 <body>
 <div class="page-container">
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg" style="padding: 0px;">
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <div class="ms-3">
-          <div style="letter-spacing: 0.1em; font-weight: 700;">CLARITY CHECK</div>
-          <div class="tagline">BRINGING CONFIDENCE TO YOUR NUMBERS.</div>
+        <img src="Images/logo11.png" alt="Clarity Check Logo" class="me-2" />
+        <div class="ms-3" style="line-height: 1.2;">
+          <div style="font-size: 2.5rem; font-weight: 700; padding: 0px;color: white;">CLARITY CHECK</div>
+          <b><div class="tagline">BRINGING CONFIDENCE TO YOUR NUMBERS.</div></b>
         </div>
       </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto" style="font-weight: 2.3rem;">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="insight.html">Insight</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="tariff.html">Tariff</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 

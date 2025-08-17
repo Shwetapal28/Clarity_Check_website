@@ -6,14 +6,11 @@
   <title>Clarity Check | Tariff</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
- <!-- <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />-->
 
   <!-- Updated Staatliches font -->
-<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
-
-<!-- Updated Open Sans with multiple weights -->
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+  <!-- Updated Open Sans with multiple weights -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -21,6 +18,7 @@
       --aqua: #39cccc;
     }
 
+    /* ---------- ORIGINAL STYLES (unchanged for desktop) ---------- */
     body {
       font-family: 'Open Sans', sans-serif;
       background-color: var(--deep-blue);
@@ -46,8 +44,10 @@
     }
 
     .navbar-brand, .nav-link {
-      color: white !important;
-      font-weight: 600;
+      font-family: 'Staatliches', sans-serif;
+      font-size: 1.9rem;
+      color: white;
+      letter-spacing: 0.08em;
     }
 
     .nav-link:hover {
@@ -72,32 +72,11 @@
     }
 
     .nav-link {
-      font-size: 1.4rem;
+      font-size: 1.8rem;
       padding: 0.7rem 1rem;
       text-align: center;
+      font-weight: 2.0rem;
     }
-
-    .disclaimer-box {
-      background-color: #f9f9f9;
-      padding: 1rem 1.25rem;
-      border-left: 4px solid #0b3c5d;
-      border-radius: 5px;
-      font-size: 0.95rem;
-      color: #333;
-      margin-top: 1rem;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .form-check-label {
-  font-size: 0.95rem;
-}
-
-form .disclaimer {
-  font-size: 0.85rem;
-  color: #333;
-  line-height: 1.4;
-}
-
 
     @media (max-width: 768px) {
       .tagline {
@@ -125,6 +104,27 @@ form .disclaimer {
       .tagline {
         font-size: 0.45rem;
       }
+    }
+
+    .disclaimer-box {
+      background-color: #f9f9f9;
+      padding: 1rem 1.25rem;
+      border-left: 4px solid #0b3c5d;
+      border-radius: 5px;
+      font-size: 0.95rem;
+      color: #333;
+      margin-top: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-check-label {
+      font-size: 0.95rem;
+    }
+
+    form .disclaimer {
+      font-size: 0.85rem;
+      color: #333;
+      line-height: 1.4;
     }
 
     .contact-container {
@@ -210,6 +210,8 @@ form .disclaimer {
       font-size: 0.95rem;
       background: transparent;
       outline: none;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .form-group textarea {
@@ -217,6 +219,7 @@ form .disclaimer {
       min-height: 80px;
     }
 
+    /* full-width field in the grid (desktop: span both columns) */
     .form-group.full {
       grid-column: span 2;
     }
@@ -256,21 +259,6 @@ form .disclaimer {
       background-color: #32698b;
     }
 
-    @media (max-width: 768px) {
-      .contact-card {
-        flex-direction: column;
-      }
-
-      .contact-left,
-      .contact-right {
-        width: 100%;
-      }
-
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     .footer {
       background-color: #092d45;
       border-top: 2px solid var(--aqua);
@@ -280,6 +268,76 @@ form .disclaimer {
       font-size: 1rem;
       margin-top: 20px;
     }
+
+    /* ---------- ADDED: spinner overlay & small modal tweaks (doesn't touch page layout) ---------- */
+    #loadingOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(11, 60, 93, 0.5); /* deep-blue tint */
+      z-index: 3000; /* above everything */
+      display: none; /* start hidden */
+      justify-content: center;
+      align-items: center;
+    }
+    /* center spinner */
+    #loadingOverlay .spinner-border {
+      width: 60px;
+      height: 60px;
+      /* use brand aqua */
+      color: #39cccc;
+    }
+
+    /* response modal header colour classes (we add/remove them in JS) */
+    .resp-header-success {
+      background-color: #0b3c5d;
+      color: white;
+    }
+    .resp-header-error {
+      background-color: #a80000;
+      color: white;
+    }
+    /* ------------------------------------------------------------------------------------------ */
+
+    /* ---------- MOBILE-ONLY FIXES (targeted; do NOT change desktop) ---------- */
+    @media (max-width: 768px) {
+      /* keep contact card stacked but keep same look */
+      .contact-card {
+        flex-direction: column;
+      }
+
+      .contact-left,
+      .contact-right {
+        width: 100%;
+      }
+
+      /* Force single column for the form fields on mobile */
+      .form-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+      }
+
+      /* ensure full elements span full width on mobile */
+      .form-group.full {
+        grid-column: 1 / -1 !important;
+      }
+
+      /* make inputs occupy available width and remove extra internal padding */
+      .contact-right {
+        padding: 1.25rem 1.25rem 2rem 1.25rem;
+      }
+
+      .contact-container {
+        padding: 1rem;
+      }
+
+      .contact-left {
+        margin-bottom: 12px;
+      }
+    }
+    /* ------------------------------------------------------------------------------------------ */
   </style>
 </head>
 <body>
@@ -290,7 +348,7 @@ form .disclaimer {
       <a class="navbar-brand d-flex align-items-center" href="index.html">
         <img src="Images/logo11.png" alt="Clarity Check Logo" class="me-2" />
         <div class="ms-3" style="line-height: 1.2;">
-          <div style="font-size: 2.5rem;letter-spacing: 0.1em; font-weight: 700; padding: 0px;color: white;">CLARITY CHECK</div>
+          <div style="font-size: 2.5rem; font-weight: 700; padding: 0px;color: white;">CLARITY CHECK</div>
           <b><div class="tagline">BRINGING CONFIDENCE TO YOUR NUMBERS.</div></b>
         </div>
       </a>
@@ -298,9 +356,9 @@ form .disclaimer {
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto" style="font-weight: 2.3rem;">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="insight.html">Insight</a></li>
           <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="tariff.html">Tariff</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -358,20 +416,23 @@ form .disclaimer {
               </select>
             </div>
           </div><br>
-                      <!-- Checkbox confirmation -->
-<div class="mb-3 form-check">
-  <input class="form-check-input" type="checkbox" id="disclaimerCheck" required>
-  <label class="form-check-label" for="disclaimerCheck">
-    I confirm that I have read and understood the disclaimer provided below.
-  </label>
-</div>
-           <!-- Disclaimer box below form -->
-            <div class="disclaimer-box mt-3">
-              <strong>Disclaimer:</strong><br>
-              Our reviews are based on limited or publicly available financial information. All insights are meant to support—not replace—your decision-making process.<br>
-              If no observations are raised, it means that we did not find anything that stood out or required flagging. This is not an audit or formal review—we do not take responsibility for the accuracy or completeness of the records.<br>
-              We reserve the right to decline service to any client. Our observations are professional opinions based on our independent review and may reflect matters already considered in account preparation. Nonetheless, they represent valid, external input.
-            </div>
+
+          <!-- Checkbox confirmation -->
+          <div class="mb-3 form-check">
+            <input class="form-check-input" type="checkbox" id="disclaimerCheck" required>
+            <label class="form-check-label" for="disclaimerCheck">
+              I confirm that I have read and understood the disclaimer provided below.
+            </label>
+          </div>
+
+          <!-- Disclaimer box below form -->
+          <div class="disclaimer-box mt-3">
+            <strong>Disclaimer:</strong><br>
+            Our reviews are based on limited or publicly available financial information. All insights are meant to support—not replace—your decision-making process.<br>
+            If no observations are raised, it means that we did not find anything that stood out or required flagging. This is not an audit or formal review—we do not take responsibility for the accuracy or completeness of the records.<br>
+            We reserve the right to decline service to any client. Our observations are professional opinions based on our independent review and may reflect matters already considered in account preparation. Nonetheless, they represent valid, external input.
+          </div>
+
           <button class="send-btn" type="submit">Interested</button>
         </form>
       </div>
@@ -384,9 +445,19 @@ form .disclaimer {
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+  <!-- ----------------- START: form script (spinner + response modal) ----------------- -->
   <script>
-    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    const endpoint = "https://clarity-check.co.uk/send";
+
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
+
+      if (!document.getElementById("disclaimerCheck").checked) {
+        alert("Please accept the disclaimer.");
+        return;
+      }
 
       const data = {
         company: document.getElementById("company").value,
@@ -398,37 +469,92 @@ form .disclaimer {
         service: document.getElementById("service").value
       };
 
-      if (!document.getElementById("disclaimerCheck").checked) {
-        alert("Please accept the disclaimer.");
-        return;
-      }
-
-
+      // show spinner overlay
+      const overlay = document.getElementById('loadingOverlay');
+      overlay.style.display = 'flex';
 
       try {
-        const response = await fetch("https://clarity-check.co.uk/send", {
+        const response = await fetch(endpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data)
         });
 
+        // hide spinner before showing result modal
+        overlay.style.display = 'none';
+
+        // prepare and show response modal (single modal used for both success and error)
+        const modalEl = document.getElementById('responseModal');
+        const modalTitleEl = document.getElementById('responseModalLabel');
+        const modalBodyEl = document.getElementById('responseModalBody');
+        const modalHeaderEl = document.getElementById('responseModalHeader');
+
+        modalHeaderEl.classList.remove('resp-header-success','resp-header-error');
+
         if (response.ok) {
-          alert(
-            "Thank you for reaching out to Clarity Check.\n" +
-            "An acknowledgement email has just been sent to the address you provided.\n\n" +
-            "We’d appreciate it if you could kindly reply or confirm receipt — it helps us stay connected and reassures us that our message reached you.\n\n" +
-            "We’ll get back to you within 3–4 working days.\n\n" +
-            "Thank you again!"
-          );
-          document.getElementById("contactForm").reset();
+          modalTitleEl.textContent = 'Thank you for reaching out to Clarity Check.';
+          modalBodyEl.innerHTML = `
+            <p>An acknowledgement email has just been sent to the address you provided.</p>
+            <p>We’d appreciate it if you could kindly reply or confirm receipt — it helps us stay connected and reassures us that our message reached you.</p>
+            <p>We’ll get back to you within 3–4 working days.</p>
+            <p>Thank you again!</p>
+          `;
+          modalHeaderEl.classList.add('resp-header-success');
+          form.reset();
         } else {
-          alert("Something went wrong. Please try again later.");
+          modalTitleEl.textContent = 'Oops! Something went wrong';
+          modalBodyEl.innerHTML = `<p>Something went wrong on our side. Please try again later.</p>`;
+          modalHeaderEl.classList.add('resp-header-error');
         }
+
+        const bsModal = new bootstrap.Modal(modalEl);
+        bsModal.show();
       } catch (err) {
-        console.error(err);
-        alert("Network error. Try again.");
+        overlay.style.display = 'none';
+
+        const modalEl = document.getElementById('responseModal');
+        const modalTitleEl = document.getElementById('responseModalLabel');
+        const modalBodyEl = document.getElementById('responseModalBody');
+        const modalHeaderEl = document.getElementById('responseModalHeader');
+
+        modalHeaderEl.classList.remove('resp-header-success','resp-header-error');
+        modalTitleEl.textContent = 'Network error';
+        modalBodyEl.innerHTML = `<p>Network error. Please check your connection and try again.</p>`;
+        modalHeaderEl.classList.add('resp-header-error');
+
+        const bsModal = new bootstrap.Modal(modalEl);
+        bsModal.show();
+
+        console.error('Form submission error:', err);
       }
     });
   </script>
+  <!-- ----------------- END: form script ----------------- -->
+
+  <!-- Loading Spinner Overlay -->
+  <div id="loadingOverlay" aria-hidden="true">
+    <div class="spinner-border" role="status" aria-hidden="true" style="color: #39cccc;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Response Modal (used both for success & error) -->
+  <div class="modal fade" id="responseModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div id="responseModalHeader" class="modal-header">
+          <h5 class="modal-title" id="responseModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-dark" id="responseModalBody" style="white-space: pre-line;">
+          <!-- Body filled dynamically -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
