@@ -65,10 +65,12 @@ Clarity Check Team`,
   try {
     await transporter.sendMail(messageToOwner);
     await transporter.sendMail(confirmationToClient);
-    res.status(200).json({ message: "Emails sent successfully" });
+
+    // ✅ Redirect user to success page after submission
+    res.redirect("/success.html");
   } catch (error) {
     console.error("Email Error:", error);
-    res.status(500).json({ message: "Email failed" });
+    res.status(500).send("Email failed. Please try again.");
   }
 });
 
@@ -76,11 +78,7 @@ app.get("/", (req, res) => {
   res.send("✅ Server is running!");
 });
 
-// ✅ Serve index.html for unknown routes (important for Render)
-//app.get("*", (req, res) => {
-//  res.sendFile(path.join(__dirname, "/public/index.html"));
-//});
-
+// ✅ Serve static files
 app.use(express.static(path.join(__dirname, "public")));
 
 app.listen(PORT, () => {

@@ -157,10 +157,13 @@
       font-family: 'Open Sans', sans-serif;
     }
 
-    .contact-left h3 {
-      font-size: 1.2rem;
+    .contact-left h3,h5 {
+      color: #39cccc;
+      font-size: 1.4rem;
       margin-bottom: 1.5rem;
       font-family: 'Staatliches', sans-serif;
+      text-decoration: underline;
+      letter-spacing: 0.05em; 
     }
 
     .contact-left p {
@@ -339,6 +342,17 @@
     }
     /* ------------------------------------------------------------------------------------------ */
   </style>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17424140018"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17424140018');
+</script>
+
 </head>
 <body>
 
@@ -371,12 +385,18 @@
   <div class="contact-container">
     <div class="contact-card">
       <div class="contact-left">
-        <div>
-          <h3>Contact Info</h3>
-          <p><i class="bi bi-envelope-fill"></i>queries@clarity-check.co.uk</p>
-          <!--<p><i class="bi bi-telephone-fill"></i>+44 7867246050</p>-->
+        <div class="founder-details">
+          <h3><b>FOUNDER INFO</b></h3>
+          <p style="color: white;"><b style="font-family: 'Staatliches' ;font-size: 1.1rem;letter-spacing: 0.05em;">Sangeeta Rao</b><i style="font-size: 0.8em;">- Chartered Accountant, MBA, Diploma in Data Analytics & Data Science</i></p>
+          <p style="font-weight: 0.5em;">As Founder & Director of Clarity Check, Sangeeta brings together financial expertise, strategic business insight, and advanced data analysis skills to provide UK businesses with independent, professional account reviews they can trust.
+          </p>
         </div>
-      </div>
+
+        <div class="contact-info">
+          <h5><b>CONTACT INFO</b></h5>
+          <p><i class="bi bi-envelope"></i> queries@clarity-check.co.uk</p>
+        </div>
+      </div> 
       <div class="contact-right">
         <h2>Get In Touch</h2>
         <form id="contactForm">
@@ -426,14 +446,14 @@
           </div>
 
           <!-- Disclaimer box below form -->
-          <div class="disclaimer-box mt-3">
+          <div class="disclaimer-box mt-3" style="font-size: 0.5em;">
             <strong>Disclaimer:</strong><br>
             Our reviews are based on limited or publicly available financial information. All insights are meant to support—not replace—your decision-making process.<br>
             If no observations are raised, it means that we did not find anything that stood out or required flagging. This is not an audit or formal review—we do not take responsibility for the accuracy or completeness of the records.<br>
             We reserve the right to decline service to any client. Our observations are professional opinions based on our independent review and may reflect matters already considered in account preparation. Nonetheless, they represent valid, external input.
           </div>
 
-          <button class="send-btn" type="submit">Interested</button>
+          <button class="send-btn" type="submit">Submit</button>
         </form>
       </div>
     </div>
@@ -447,88 +467,64 @@
 
   <!-- ----------------- START: form script (spinner + response modal) ----------------- -->
   <script>
-    const endpoint = "https://clarity-check.co.uk/send";
+document.addEventListener('DOMContentLoaded', () => {
+  // Use your live endpoint; keep localhost override for local testing if you want
+  const endpoint = location.hostname.includes('localhost')
+    ? 'http://localhost:3000/send'
+    : 'https://clarity-check.co.uk/send';
 
-    const form = document.getElementById('contactForm');
+  const form = document.getElementById('contactForm');
+  const overlay = document.getElementById('loadingOverlay');
 
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-      if (!document.getElementById("disclaimerCheck").checked) {
-        alert("Please accept the disclaimer.");
+    // require disclaimer
+    const disclaimer = document.getElementById('disclaimerCheck');
+    if (disclaimer && !disclaimer.checked) {
+      alert('Please accept the disclaimer.');
+      return;
+    }
+
+    // show spinner
+    if (overlay) overlay.style.display = 'flex';
+
+    // collect form data (IDs match your page)
+    const data = {
+      company:   document.getElementById('company').value,
+      name:      document.getElementById('name').value,
+      yearEnd:   document.getElementById('yearEnd').value,
+      activity:  document.getElementById('activity').value,
+      reference: document.getElementById('reference').value,
+      email:     document.getElementById('email').value,
+      service:   document.getElementById('service').value
+    };
+
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if (res.ok) {
+        // go to success page (for Google Ads conversion URL)
+        window.location.href = 'success.html';
         return;
       }
 
-      const data = {
-        company: document.getElementById("company").value,
-        name: document.getElementById("name").value,
-        yearEnd: document.getElementById("yearEnd").value,
-        activity: document.getElementById("activity").value,
-        reference: document.getElementById("reference").value,
-        email: document.getElementById("email").value,
-        service: document.getElementById("service").value
-      };
+      // error path
+      if (overlay) overlay.style.display = 'none';
+      alert('Something went wrong on our side. Please try again.');
+    } catch (err) {
+      if (overlay) overlay.style.display = 'none';
+      alert('Network error. Please check your connection and try again.');
+      console.error(err);
+    }
+  });
+});
+</script>
 
-      // show spinner overlay
-      const overlay = document.getElementById('loadingOverlay');
-      overlay.style.display = 'flex';
-
-      try {
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        });
-
-        // hide spinner before showing result modal
-        overlay.style.display = 'none';
-
-        // prepare and show response modal (single modal used for both success and error)
-        const modalEl = document.getElementById('responseModal');
-        const modalTitleEl = document.getElementById('responseModalLabel');
-        const modalBodyEl = document.getElementById('responseModalBody');
-        const modalHeaderEl = document.getElementById('responseModalHeader');
-
-        modalHeaderEl.classList.remove('resp-header-success','resp-header-error');
-
-        if (response.ok) {
-          modalTitleEl.textContent = 'Thank you for reaching out to Clarity Check.';
-          modalBodyEl.innerHTML = `
-            <p>An acknowledgement email has just been sent to the address you provided.</p>
-            <p>We’d appreciate it if you could kindly reply or confirm receipt — it helps us stay connected and reassures us that our message reached you.</p>
-            <p>We’ll get back to you within 3–4 working days.</p>
-            <p>Thank you again!</p>
-          `;
-          modalHeaderEl.classList.add('resp-header-success');
-          form.reset();
-        } else {
-          modalTitleEl.textContent = 'Oops! Something went wrong';
-          modalBodyEl.innerHTML = `<p>Something went wrong on our side. Please try again later.</p>`;
-          modalHeaderEl.classList.add('resp-header-error');
-        }
-
-        const bsModal = new bootstrap.Modal(modalEl);
-        bsModal.show();
-      } catch (err) {
-        overlay.style.display = 'none';
-
-        const modalEl = document.getElementById('responseModal');
-        const modalTitleEl = document.getElementById('responseModalLabel');
-        const modalBodyEl = document.getElementById('responseModalBody');
-        const modalHeaderEl = document.getElementById('responseModalHeader');
-
-        modalHeaderEl.classList.remove('resp-header-success','resp-header-error');
-        modalTitleEl.textContent = 'Network error';
-        modalBodyEl.innerHTML = `<p>Network error. Please check your connection and try again.</p>`;
-        modalHeaderEl.classList.add('resp-header-error');
-
-        const bsModal = new bootstrap.Modal(modalEl);
-        bsModal.show();
-
-        console.error('Form submission error:', err);
-      }
-    });
-  </script>
   <!-- ----------------- END: form script ----------------- -->
 
   <!-- Loading Spinner Overlay -->
@@ -538,7 +534,7 @@
     </div>
   </div>
 
-  <!-- Response Modal (used both for success & error) -->
+  <!-- Response Modal (used both for success & error) 
   <div class="modal fade" id="responseModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -547,14 +543,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-dark" id="responseModalBody" style="white-space: pre-line;">
-          <!-- Body filled dynamically -->
+           Body filled dynamically 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
 
 </body>
 </html>
